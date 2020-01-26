@@ -1,0 +1,19 @@
+<h1>投稿完了</h1>
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>タイトル</th>
+      <th>内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><%= @post.id %></th>
+      <td><%= @post.title %></td>
+      <td><%= @post.context %></td
+    </tr>
+  </tbody>
+</table>
+<%= link_to '戻る', posts_path %>
