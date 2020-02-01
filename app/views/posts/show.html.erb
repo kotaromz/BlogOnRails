@@ -1,19 +1,41 @@
-<h1>投稿完了</h1>
-<br>
-<table class="table">
-  <thead>
-    <tr>
-      <th></th>
-      <th>タイトル</th>
-      <th>内容</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row"><%= @post.id %></th>
-      <td><%= @post.title %></td>
-      <td><%= @post.context %></td
-    </tr>
-  </tbody>
-</table>
-<%= link_to 'ホームへ戻る', posts_path %>
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">
+              <span data-feather="home"></span>
+              <%= link_to 'ホーム', posts_path %>
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+      <div class="col-md-10">
+        <h1>投稿詳細</h1>
+        <br>
+        <div class="table-responsive">
+          <table class="table table-stripped table-sm">
+            <thead>
+              <tr>
+                <th></th>
+                <th>タイトル</th>
+                <th>内容</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><%= @post.id %></th>
+                <td><%= @post.title %></td>
+                <td><%= @post.context %></td>
+              </tr> 
+            </tbody> 
+          </table> <%= link_to 'ホームへ戻る', posts_path %>
+        </div> 
+      </div>
+      
+  </div>
+</div>
