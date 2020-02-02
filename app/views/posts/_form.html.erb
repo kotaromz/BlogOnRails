@@ -1,37 +1,54 @@
-<%= form_with model: @post, local: true do |form| %>
+<%= render 'top' %>
 
-    <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@post.errors.count, "つのエラーがあります。") %>
-      </h2>
-      <ul>
-        <% @post.errors.full_messages.each do |msg| %>
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-8">
+      
+      <%= form_with model: @post, local: true do |form| %>
+
+      <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@post.errors.count, "つのエラーがあります。") %>
+        </h2>
+        <ul>
+          <% @post.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
 
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <div class="field">
-        <%= form.label :title, class: "control-label" %>
-        <%= form.text_field :title, class: "form-control" %>
+      <div class="container-fluid ">
+        <div class="field">
+          <%= form.label :title, class: "control-label" %>
+          <%= form.text_field :title, class: "form-control" %>
+        </div>
+        <br />
+        <div class="field">
+          <%= form.label :context, class: "control-label" %>
+          <%= form.text_area :context, class: "form-control" %>
+        </div>
+
+        <br />
+        <div class="actions">
+          <%= form.submit "投稿する", class: "btn btn-lg btn-primary" %>
+        </div>
+        <% end %>
       </div>
-      <br/>
-      <div class="field">
-        <%= form.label :context, class: "control-label" %>
-        <%= form.text_area :context, class: "form-control" %>
+
       </div>
+
+      <%= render 'side' %>
+
     </div>
-  </div>
-  <br/>
-  <div class="row">
-    <div class="col-md-3 col-md-offset-3">
-      <div class="actions">
-        <%= form.submit "投稿する", class: "btn btn-lg btn-primary" %>
-      </div>
-    </div>
-  </div>  
-  <% end %>
+
+  <%= render 'footer' %>
+
+</body>
+</html>
+
+
+  
