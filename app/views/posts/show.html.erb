@@ -1,41 +1,49 @@
-<div class="container-fluid">
-  <div class="row">
-    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-      <div class="sidebar-sticky">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">
-              <span data-feather="home"></span>
-              <%= link_to 'ホーム', posts_path %>
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+<%= render 'top' %>
 
-      <div class="col-md-10">
-        <h1>投稿詳細</h1>
-        <br>
-        <div class="table-responsive">
-          <table class="table table-stripped table-sm">
-            <thead>
-              <tr>
-                <th></th>
-                <th>タイトル</th>
-                <th>内容</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row"><%= @post.id %></th>
-                <td><%= @post.title %></td>
-                <td><%= @post.context %></td>
-              </tr> 
-            </tbody> 
-          </table> <%= link_to 'ホームへ戻る', posts_path %>
-        </div> 
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+
+      <!-- Post Content Column -->
+      <div class="col-lg-8">
+
+        <!-- Title -->
+        <h1 class="mt-4">Post Title</h1>
+
+        <!-- Author -->
+        <p class="lead">
+          by
+          <a href="#">Start Bootstrap</a>
+        </p>
+
+        <hr>
+
+        <!-- Date/Time -->
+        <p>Posted on January 1, 2019 at 12:00 PM</p>
+
+        <hr>
+
+        <!-- Preview Image -->
+        <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+
+        <hr>
+        <p><%= @post.id %></p>
+        <p><%= @post.title %></p>
+        <p><%= @post.context %></p>
+        <!-- Post Content -->
+        <hr>
+
       </div>
-      
+
+      <%= render 'side' %>
+    </div>
+    <!-- /.row -->
+
   </div>
-</div>
+  <!-- /.container -->
+
+  <%= render 'footer'%>
+</body>
+
+</html>
