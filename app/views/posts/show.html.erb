@@ -1,49 +1,31 @@
-<%= render 'top' %>
+<%= render 'layouts/top' %>
 
-  <!-- Page Content -->
-  <div class="container">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
 
-    <div class="row">
+      <h1 class="mt-4">Post Title</h1>
 
-      <!-- Post Content Column -->
-      <div class="col-lg-8">
+      <p class="lead">
+        by
+        <a href="#">Start Bootstrap</a>
+      </p>
 
-        <!-- Title -->
-        <h1 class="mt-4">Post Title</h1>
+      <hr>
+      <p>Posted on January 1, 2019 at 12:00 PM</p>
+      <hr>
 
-        <!-- Author -->
-        <p class="lead">
-          by
-          <a href="#">Start Bootstrap</a>
-        </p>
+      <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
 
-        <hr>
+      <hr>
+      <p><%= @post.id %></p>
+      <p><%= @post.title %></p>
+      <p><%= @post.context %></p>
+      <hr>
 
-        <!-- Date/Time -->
-        <p>Posted on January 1, 2019 at 12:00 PM</p>
-
-        <hr>
-
-        <!-- Preview Image -->
-        <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
-
-        <hr>
-        <p><%= @post.id %></p>
-        <p><%= @post.title %></p>
-        <p><%= @post.context %></p>
-        <!-- Post Content -->
-        <hr>
-
-      </div>
-
-      <%= render 'side' %>
     </div>
-    <!-- /.row -->
-
+    <%= render 'layouts/side' %>
   </div>
-  <!-- /.container -->
+</div>
 
-  <%= render 'footer'%>
-</body>
-
-</html>
+<%= render 'layouts/footer'%>

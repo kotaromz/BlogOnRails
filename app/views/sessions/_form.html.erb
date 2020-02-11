@@ -1,0 +1,32 @@
+<%= render 'layouts/top' %>
+
+<h1><%= link_to '新規登録' , signup_path %></h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      
+      <%= form_with scope: :session, local: true do |form| %>
+        <div class="container-fluid ">
+          <div class="field">
+            <%= form.label :email, class: "control-label" %>
+            <%= form.text_field :email, class: "form-control" %>
+          </div>
+          <br />
+          <div class="field">
+            <%= form.label :password, class: "control-label" %>
+            <%= form.password_field :password, class: "form-control" %>
+          </div>
+          <br />
+          <div class="actions">
+            <%= form.submit "ログイン", class: "btn btn-lg btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <%= render 'layouts/side' %>
+  </div>
+</div>
+<%= render 'layouts/footer' %>
+
+
+  

@@ -1,23 +1,21 @@
-<h1>Admin::Users#index</h1>
-<p>Find me in app/views/admin/users/index.html.erb</p>
+<%= render 'layouts/top'%>
 
 <div class="container">
+  <div class="row">
+    <div class="col-md-8">
 
-    <div class="row">
+      <h1 class="my-4">Page Heading
+        <small><%= link_to '新規登録' , new_admin_user_path %></small>
+      </h1>
 
-      <div class="col-md-8">
-
-        <h1 class="my-4">Page Heading
-          <small><%= link_to '新規登録' , new_admin_user_path %></small>
-        </h1>
-
-        <% @users.each do |user|%>
+      <% @users.each do |user|%>
         <div class="card mb-4">
           <div class="card-body">
             <h2 class="card-title"><%= user.name %></h2>
             <p class="card-text"><%= user.email %></p>
             <p class="card-text"><%= user.admin %></p>
             <p class="card-text"><%= user.email %></p>
+            <%= link_to '詳細', [:admin, user] %>
             <%= link_to '編集', edit_admin_user_path(user) %>
             <%= link_to '削除', [:admin, user],
                     method: :delete,
@@ -28,17 +26,19 @@
             <a href="#">Start Bootstrap</a>
           </div>
         </div>
-        <% end %>
+      <% end %>
 
-        <ul class="pagination justify-content-center mb-4">
-          <li class="page-item">
-            <a class="page-link" href="#">&larr; Older</a>
-          </li>
-          <li class="page-item disabled">
-            <a class="page-link" href="#">Newer &rarr;</a>
-          </li>
-        </ul>
-
-      </div>
+      <ul class="pagination justify-content-center mb-4">
+        <li class="page-item">
+          <a class="page-link" href="#">&larr; Older</a>
+        </li>
+        <li class="page-item disabled">
+          <a class="page-link" href="#">Newer &rarr;</a>
+        </li>
+      </ul>
 
     </div>
+    <%= render 'layouts/side' %>
+  </div>
+</div>
+<%= render 'layouts/footer' %>
