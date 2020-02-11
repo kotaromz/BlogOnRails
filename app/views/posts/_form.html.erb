@@ -1,8 +1,7 @@
-<%= render 'top' %>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8">
+<%= render 'layouts/top' %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
       <%= form_with model: @post, local: true do |form| %>
         <% if @post.errors.any? %>
         <div id="error_explanation">
@@ -26,23 +25,17 @@
             <%= form.label :context, class: "control-label" %>
             <%= form.text_area :context, class: "form-control" %>
           </div>
-
           <br />
           <div class="actions">
             <%= form.submit "投稿する", class: "btn btn-lg btn-primary" %>
           </div>
         </div>
       <% end %>
-      </div>
-
-      <%= render 'side' %>
-
     </div>
-
-  <%= render 'footer' %>
-
-</body>
-</html>
+    <%= render 'layouts/side' %>
+  </div>
+</div>
+<%= render 'layouts/footer' %>
 
 
   
