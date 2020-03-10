@@ -7,25 +7,21 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
-      <% if current_user %>
-        <li class="nav-item active">
+      <li class="nav-item active">
           <%= link_to 'ホーム', root_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to '投稿一覧', posts_path, class: "nav-link" %>
         </li>
+      <% if current_user %>
         <% if current_user.admin? %>
           <li class="nav-item">
             <%= link_to 'ユーザー一覧', admin_users_path, class: "nav-link" %>
           </li>
-        <% end %>
-        <li class="nav-item">
+          <li class="nav-item">
           <%= link_to 'ログアウト', logout_path, method: :delete, class: "nav-link" %>
         </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to 'ログイン', login_path, class: "nav-link" %>
-        </li>
+        <% end %>
       <% end %>
       </ul>
     </div>

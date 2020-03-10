@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
   before_action :require_admin, only: [:index]
-  skip_before_action :login_required, if: proc{action_name=="new" || action_name=="create"}
+  # skip_before_action :login_required, if: proc{action_name=="new" || action_name=="create"}
   def new
     @user = User.new
     @admin = current_user.admin if current_user

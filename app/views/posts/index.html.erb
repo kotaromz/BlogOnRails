@@ -15,10 +15,13 @@
             <h2 class="card-title"><%= post.title %></h2>
             <p class="card-text"><%= post.context %></p>
             <%= link_to '詳細', post_path(post) %>
-            <%= link_to '編集', edit_post_path(post) %>
-            <%= link_to '削除', post_path(post),
-                    method: :delete,
-                    data: { confirm: '削除しますか？'} %>
+            <% if !current_user.nil? and current_user.admin? %>
+              <%= link_to '編集', edit_post_path(post) %>
+              <%= link_to '削除', post_path(post),
+                      method: :delete,
+                      data: { confirm: '削除しますか？'} %>
+            <% end %>
+
           </div>
           <div class="card-footer text-muted">
             Posted on January 1, 2017 by
@@ -27,14 +30,14 @@
         </div>
       <% end %>
 
-      <ul class="pagination justify-content-center mb-4">
+      <%# <ul class="pagination justify-content-center mb-4">
         <li class="page-item">
           <a class="page-link" href="#">&larr; Older</a>
         </li>
         <li class="page-item disabled">
           <a class="page-link" href="#">Newer &rarr;</a>
         </li>
-      </ul>
+      </ul> %>
 
     </div>
     <%= render 'layouts/side' %>
