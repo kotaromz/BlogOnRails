@@ -2,19 +2,17 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
 
-      <h1 class="my-4">Page Heading
-        <small><%= link_to '新規登録' , new_admin_user_path %></small>
-      </h1>
+      <h1>ユーザー一覧</h1>
+      <h1><%= link_to '新規登録' , new_admin_user_path %></h1>
 
       <% @users.each do |user|%>
         <div class="card mb-4">
           <div class="card-body">
-            <h2 class="card-title"><%= user.name %></h2>
-            <p class="card-text"><%= user.email %></p>
-            <p class="card-text"><%= user.admin %></p>
-            <p class="card-text"><%= user.email %></p>
+            <h2 class="card-title">ユーザ名: <%= user.name %></h2>
+            <p class="card-text">メール: <%= user.email %></p>
+            <p class="card-text">管理者権限: <%= user.admin %></p>
             <%= link_to '詳細', [:admin, user] %>
             <% if current_user.admin? %>
               <%= link_to '編集', edit_admin_user_path(user) %>
@@ -24,23 +22,11 @@
             <% end %>
           </div>
           <div class="card-footer text-muted">
-            Posted on January 1, 2017 by
-            <a href="#">Start Bootstrap</a>
+            作成日時: <%= user.created_at %>
           </div>
         </div>
       <% end %>
-
-      <%# <ul class="pagination justify-content-center mb-4">
-        <li class="page-item">
-          <a class="page-link" href="#">&larr; Older</a>
-        </li>
-        <li class="page-item disabled">
-          <a class="page-link" href="#">Newer &rarr;</a>
-        </li>
-      </ul> %>
-
     </div>
-    <%= render 'layouts/side' %>
   </div>
 </div>
 <%= render 'layouts/footer' %>

@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :require_admin, except:[:index, :show]
+
   def index
     @posts = Post.all
   end
@@ -17,15 +19,15 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = current_user.posts.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def edit
-    @post = current_user.posts.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def update
-    @post = current_user.posts.find(params[:id])
+    @post = Post.find(params[:id])
 
     if @post.update(post_params)
       redirect_to @post

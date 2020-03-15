@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  # skip_before_action :login_required
   protect_from_forgery
 
   def new

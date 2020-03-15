@@ -2,15 +2,15 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
 
-      <h1 class="my-4">Page Heading
-        <small><%= link_to '投稿する' , new_post_path %></small>
-      </h1>
-
+      <h1>投稿一覧</h1>
+      <% if !current_user.nil? and current_user.admin? %>
+        <h1><%= link_to '新規投稿' , new_post_path %></h1>
+      <% end %>
       <% @posts.each do |post|%>
         <div class="card mb-4">
-          <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+          
           <div class="card-body">
             <h2 class="card-title"><%= post.title %></h2>
             <p class="card-text"><%= post.context %></p>
@@ -24,23 +24,12 @@
 
           </div>
           <div class="card-footer text-muted">
-            Posted on January 1, 2017 by
-            <a href="#">Start Bootstrap</a>
+            作成日時: <%= post.created_at %>
           </div>
         </div>
       <% end %>
 
-      <%# <ul class="pagination justify-content-center mb-4">
-        <li class="page-item">
-          <a class="page-link" href="#">&larr; Older</a>
-        </li>
-        <li class="page-item disabled">
-          <a class="page-link" href="#">Newer &rarr;</a>
-        </li>
-      </ul> %>
-
     </div>
-    <%= render 'layouts/side' %>
   </div>
 </div>
 
