@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user
-  before_action :login_required
+  helper_method :current_user, :require_admin
 
   private
 
@@ -8,7 +7,14 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
 
-  def login_required
-    redirect_to login_path unless current_user
+  def require_admin
+    if current_user.nil?
+      return redirect_to root_path
+    end
+
+    if !current_user.admin
+      return redirect_to root_path
+    end
   end
+
 end

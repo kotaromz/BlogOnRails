@@ -2,7 +2,7 @@
 <h1>ユーザー新規登録</h1>
 <div class="container">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
     <%= form_with model: [:admin, @user], local: true do |form| %>
       <div class="container-fluid">
         <div class="field">
@@ -35,7 +35,6 @@
       </div>
     <% end %>
     </div>
-    <%= render 'layouts/side' %>
   </div>
 </div>
 

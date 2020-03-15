@@ -2,29 +2,16 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-12">
 
-      <h1 class="mt-4">Post Title</h1>
-
-      <p class="lead">
-        by
-        <a href="#">Start Bootstrap</a>
-      </p>
-
+      <h1><%= @post.title %></h1>
       <hr>
-      <p>Posted on January 1, 2019 at 12:00 PM</p>
+      <p><%= @post.created_at %></p>
       <hr>
-
-      <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
-
-      <hr>
-      <p><%= @post.id %></p>
-      <p><%= @post.title %></p>
       <p><%= @post.context %></p>
       <hr>
 
     </div>
-    <%= render 'layouts/side' %>
   </div>
 </div>
 

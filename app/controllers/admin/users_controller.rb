@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
-  before_action :require_admin, only: [:index]
-  skip_before_action :login_required, if: proc{action_name=="new" || action_name=="create"}
+  before_action :require_admin
+  
   def new
     @user = User.new
     @admin = current_user.admin if current_user
@@ -57,11 +57,4 @@ class Admin::UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :admin, :password, :password_confirmation)
   end
 
-  def require_admin
-    if current_user
-      redirect_to root_path unless current_user.admin?
-    else
-      redirect_to root_url
-    end
-  end
 end
