@@ -1,4 +1,25 @@
 <%= render  'layouts/top' %>
+
 <h1>ホーム画面</h1>
-<h1>ブログへようこそ</h1>
+  <h1><span class="js-display-typing"></span></h1>
+  <%= javascript_include_tag 'jquery.min.js'%>
+  <%= javascript_include_tag 'jquery.migrate.min.js'%>
+  <%= javascript_include_tag 'typedjs/typed.js' %>
+
+  <script>
+    $(document).on('ready', function () {
+      $(".js-display-typing").typed({
+        strings: [
+          "コメント1",
+          "コメント2",
+          "コメント3"
+        ],
+        typeSpeed: 60,
+        loop: true,
+        backDelay: 2500
+      });
+    });
+  </script>
+
+
 <%= render 'layouts/footer' %>

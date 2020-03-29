@@ -14,3 +14,19 @@
  *= require_self
  */
  @import "bootstrap";
+
+ .logout{
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  color: darkgray;
+  background-color: transparent;
+  // border-radius: 5px;
+  -weabkit-transition: all 0.5s;
+  // transition: all 0.5s;
+  margin: 10px;
+}
+
+.logout:hover{
+  background-color: #f90000;
+}

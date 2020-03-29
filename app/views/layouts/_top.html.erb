@@ -19,7 +19,7 @@
             <%= link_to 'ユーザー一覧', admin_users_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-          <%= link_to 'ログアウト', logout_path, method: :delete, class: "nav-link" %>
+          <%= button_to 'ログアウト', logout_path, method: :delete, class: "logout" %>
         </li>
         <% end %>
       <% end %>
