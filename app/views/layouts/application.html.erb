@@ -9,7 +9,25 @@
     <%= javascript_pack_tag 'application' %>
   </head>
 
-  <body style="padding-top: 56px">
+  <body>
+    <%= javascript_include_tag 'jquery.min.js'%>
+  <%= javascript_include_tag 'jquery.migrate.min.js'%>
+  <%= javascript_include_tag 'typedjs/typed.js' %>
+
+  <script>
+    $(document).on('ready', function () {
+      $(".js-display-typing").typed({
+        strings: [
+          "a Developer.",
+          "a Newbie.",
+          "Kotaro Mäzima."
+        ],
+        typeSpeed: 60,
+        loop: true,
+        backDelay: 2500
+      });
+    });
+  </script>
     <%= yield %>
   </body>
 </html>

@@ -1,18 +1,23 @@
 <%= render 'layouts/top' %>
-
-<div class="container">
+<section  style="background-image: url(<%= asset_path('01.jpg') %>);">
+<div class="container u-overlay__inner">
   <div class="row">
     <div class="col-lg-12">
-
-      <h1><%= @post.title %></h1>
-      <hr>
-      <p><%= @post.created_at %></p>
-      <hr>
-      <p><%= @post.context %></p>
-      <hr>
-      <% if @post.image? %>
-        <p><%= image_tag @post.image.url %></p>
-      <% end %>
+      <div style="height:70px;"></div>
+        <div class="card mb-4">  
+          <div class="card-body">
+            <h2 class="card-title"><%= @post.title %></h2>
+            <hr>
+            <p class="card-text"><%= @post.context %></p>
+            <% if @post.image? %>
+              <p><%= image_tag @post.image.url %></p>
+            <% end %>
+          </div>
+          <div class="card-footer text-muted">
+              作成日時: <%= @post.created_at %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

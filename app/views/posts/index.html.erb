@@ -1,14 +1,13 @@
 <%= render 'layouts/top'%>
-
-<div class="container">
+<section  style="background-image: url(<%= asset_path('01.jpg') %>);">
+<div class="container u-overlay__inner">
   <div class="row">
     <div class="col-md-12">
-
-      <h1>投稿一覧</h1>
+    <div style="height:70px;"></div>
       <% if !current_user.nil? and current_user.admin? %>
         <h1><%= link_to '新規投稿' , new_post_path %></h1>
       <% end %>
-      <% @posts.each do |post|%>
+      <% @posts.reverse.each do |post|%>
         <div class="card mb-4">
           
           <div class="card-body">
@@ -35,6 +34,8 @@
     </div>
   </div>
 </div>
+
+
 
 <%= render 'layouts/footer' %>
 

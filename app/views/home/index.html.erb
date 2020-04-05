@@ -1,25 +1,18 @@
 <%= render  'layouts/top' %>
 
-<h1>ホーム画面</h1>
-  <h1><span class="js-display-typing"></span></h1>
-  <%= javascript_include_tag 'jquery.min.js'%>
-  <%= javascript_include_tag 'jquery.migrate.min.js'%>
-  <%= javascript_include_tag 'typedjs/typed.js' %>
-
-  <script>
-    $(document).on('ready', function () {
-      $(".js-display-typing").typed({
-        strings: [
-          "コメント1",
-          "コメント2",
-          "コメント3"
-        ],
-        typeSpeed: 60,
-        loop: true,
-        backDelay: 2500
-      });
-    });
-  </script>
-
-
+<header>
+  <section class="js-parallax u-promo-block u-promo-block--mheight-600 u-overlay u-overlay--dark text-white" style="background-image: url(<%= asset_path('01.jpg') %>);">
+  <div class="container u-overlay__inner u-ver-center u-content-space">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="text-center">
+          <p class="text-uppercase u-letter-spacing-sm mb-0">Hello, Friend.</p>
+          <h1 class="display-sm-4 display-lg-3 mb-3">I am <span class="js-display-typing"></span></h1>
+            <%= link_to 'Read More', posts_path, class: "btn btn-primary"  %><i class="fas fa-arrow-alt-circle-right ml-2"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</header>
 <%= render 'layouts/footer' %>
