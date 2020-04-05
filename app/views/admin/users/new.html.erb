@@ -1,8 +1,11 @@
 <%= render 'layouts/top'%>
-<h1>ユーザー新規登録</h1>
-<div class="container">
+
+<section  style="background-image: url(<%= asset_path('01.jpg') %>);">
+<div class="container u-overlay__inner">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-lg-12" style="color:white;">
+    <div style="height:70px;"></div>
+    <h1>新規作成</h1>
     <%= form_with model: [:admin, @user], local: true do |form| %>
       <div class="container-fluid">
         <div class="field">
